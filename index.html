@@ -1,107 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Day 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
       color: #333;
     }
 
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      color: #2c3e50;
-    }
-
-    .projects ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .projects li {
-      background-color: white;
-      padding: 20px;
+    .form-group {
       margin-bottom: 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .contact a {
-      display: inline-block;
-      margin-right: 15px;
-      color: #2980b9;
-      text-decoration: none;
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #444;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4a90e2;
+      outline: none;
+      box-shadow: 0 0 5px rgba(74,144,226,0.3);
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #357ab8;
     }
   </style>
 </head>
 <body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
 
-  <header>
-    <h1>sanjay</h1>
-    <p>Web Developer </p>
-  </header>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm sanjay, a passionate web developer . I enjoy learning new technologies and turning ideas into reality. When I'm not coding, you'll find me sketching or exploring nature.</p>
-  </section>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <strong>Project One:</strong> Portfolio Website<br>
-        A simple personal site to showcase my work and skills.
-      </li>
-      <li>
-        <strong>Project Two:</strong> Task Tracker App<br>
-        A minimal app to manage daily tasks and boost productivity.
-      </li>
-      <li>
-        <strong>Project Three:</strong> Blog Template<br>
-        A clean and responsive blog layout for sharing thoughts.
-      </li>
-    </ul>
-  </section>
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="male"> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
+      </div>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="sanjay63799402@gmai.com">sanjay63799402@gmail.com</a></p>
-    <p>LinkedIn: <a href="www.linkedin.com/in/sanjay-p-90999a307" >linkedin.com/in/sanjay</a></p>
-  </section>
+      <div class="form-group">
+        <label>Hobbies</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" value="reading"> Reading</label>
+          <label><input type="checkbox" value="sports"> Sports</label>
+          <label><input type="checkbox" value="music"> Music</label>
+          <label><input type="checkbox" value="travel"> Travel</label>
+        </div>
+      </div>
 
+      <button type="submit">Register</button>
+    </form>
+  </div>
 </body>
 </html>
