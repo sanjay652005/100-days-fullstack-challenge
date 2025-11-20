@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Checker</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .container {
+      background: #fff;
+      padding: 25px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #66a6ff;
+      border-radius: 5px;
+      width: 150px;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      background-color: #66a6ff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #558bff;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Age Checker</h1>
+  <div class="container">
+    <input type="number" id="age" placeholder="Enter your age">
+    <br>
+    <button onclick="checkAge()">Check</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAge() {
+      let age = document.getElementById("age").value;
+      let result = document.getElementById("result");
+
+      if (age === "" || isNaN(age) || age < 0) {
+        result.innerHTML = "⚠️ Please enter a valid age.";
+        result.style.color = "red";
+      } else if (age < 13) {
+        result.innerHTML = "🧒 You are a child.";
+        result.style.color = "orange";
+      } else if (age >= 13 && age <= 19) {
+        result.innerHTML = "👦 You are a teenager.";
+        result.style.color = "blue";
+      } else {
+        result.innerHTML = "🧔 You are an adult.";
+        result.style.color = "green";
+      }
+    }
+  </script>
+</body>
+</html>

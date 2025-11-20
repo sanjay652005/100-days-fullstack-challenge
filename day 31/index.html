@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍 Country Info Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button class="toggle-mode">🌙 Dark Mode</button>
+  <h1>🌍 Country Info Explorer</h1>
+
+  <div class="search-container">
+    <input type="text" id="countryInput" placeholder="Enter country name" />
+    <button id="searchBtn">Search</button>
+    <button id="randomBtn">🌎 Random</button>
+  </div>
+
+  <div class="card" id="resultCard">
+    <img class="flag" id="flag" alt="Country Flag" />
+    <div class="info">
+      <p><strong>📛 Name:</strong> <span id="name"></span></p>
+      <p><strong>🗺️ Capital:</strong> <span id="capital"></span></p>
+      <p><strong>🧑‍🤝‍🧑 Population:</strong> <span id="population"></span></p>
+      <p><strong>💬 Language(s):</strong> <span id="languages"></span></p>
+      <p><strong>💰 Currency:</strong> <span id="currency"></span></p>
+    </div>
+    <div class="border-list" id="borders"></div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

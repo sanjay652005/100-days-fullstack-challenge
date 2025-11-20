@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎨 Color Palette Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .palette {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .color-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .color-box:hover {
+      transform: scale(1.05);
+    }
+
+    .hex {
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 25px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Color Palette Generator</h1>
+
+  <div class="palette" id="palette"></div>
+
+  <button id="generate">Generate Palette</button>
+
+  <script>
+    const palette = document.getElementById("palette");
+    const generateBtn = document.getElementById("generate");
+
+    // Function to generate a random hex color
+    function getRandomColor() {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Function to create color boxes
+    function generatePalette() {
+      palette.innerHTML = "";
+      for (let i = 0; i < 5; i++) {
+        const color = getRandomColor();
+        const box = document.createElement("div");
+        box.classList.add("color-box");
+        box.style.backgroundColor = color;
+
+        const hex = document.createElement("span");
+        hex.classList.add("hex");
+        hex.textContent = color;
+
+        // Copy color to clipboard when clicked
+        box.addEventListener("click", () => {
+          navigator.clipboard.writeText(color);
+          alert(`Copied ${color} to clipboard!`);
+        });
+
+        box.appendChild(hex);
+        palette.appendChild(box);
+      }
+    }
+
+    // Event listeners
+    generateBtn.addEventListener("click", generatePalette);
+    window.addEventListener("load", generatePalette);
+  </script>
+</body>
+</html>

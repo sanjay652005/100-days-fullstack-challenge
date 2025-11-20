@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📖 Dictionary App</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      flex: 1;
+      padding: 0.7rem;
+      border: 2px solid #64b5f6;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1976d2;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .word {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .phonetic {
+      color: #0288d1;
+    }
+
+    .example {
+      font-style: italic;
+      color: #757575;
+    }
+
+    audio {
+      margin-top: 0.8rem;
+      width: 100%;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Dictionary App</h1>
+    <div class="search-box">
+      <input type="text" id="wordInput" placeholder="Enter a word" />
+      <button id="searchBtn">Search</button>
+    </div>
+    <div id="result" class="result"></div>
+    <p id="error" class="error"></p>
+  </div>
+
+  <script>
+    const searchBtn = document.getElementById("searchBtn");
+    const wordInput = document.getElementById("wordInput");
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+
+    async function fetchWordData(word) {
+      try {
+        result.innerHTML = "Loading...";
+        error.textContent = "";
+
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        const data = await res.json();
+
+        if (data.title === "No Definitions Found") {
+          result.innerHTML = "";
+          error.textContent = "❌ Word not found!";
+          return;
+        }
+
+        const meaning = data[0].meanings[0].definitions[0];
+        const phonetic = data[0].phonetic || data[0].phonetics[0]?.text || "";
+        const audio = data[0].phonetics.find(p => p.audio)?.audio;
+
+        result.innerHTML = `
+          <div class="word">${data[0].word}</div>
+          <div class="phonetic">${phonetic}</div>
+          <div><b>Definition:</b> ${meaning.definition}</div>
+          ${meaning.example ? `<div class="example">💬 "${meaning.example}"</div>` : ""}
+          ${audio ? `<audio controls><source src="${audio}" type="audio/mpeg"></audio>` : ""}
+        `;
+      } catch {
+        result.innerHTML = "";
+        error.textContent = "⚠️ Unable to fetch data!";
+      }
+    }
+
+    searchBtn.addEventListener("click", () => {
+      const word = wordInput.value.trim();
+      if (word === "") {
+        error.textContent = "Please enter a word!";
+        return;
+      }
+      fetchWordData(word);
+    });
+
+    wordInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") searchBtn.click();
+    });
+  </script>
+</body>
+</html>

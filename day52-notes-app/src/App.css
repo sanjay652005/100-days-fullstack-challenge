@@ -1,0 +1,111 @@
+/* Page background */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+/* Center full app */
+.main-wrapper {
+  max-width: 600px;
+  margin: 40px auto; /* centers the container */
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Add Note Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 12px;
+  background: #6a5acd;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background: #5b4ccc;
+}
+
+/* Note Card */
+.note-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.note-card h3 {
+  margin: 0;
+  color: #222;
+}
+
+.note-card p {
+  margin: 5px 0 15px 0;
+  color: #555;
+}
+
+/* Buttons */
+.note-card button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #449d48;
+}
+
+.delete-btn {
+  background: #e63946;
+  color: white;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background: #c92f3e;
+}
+
+/* Edit Inputs */
+.edit-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+

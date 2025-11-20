@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>😆 Random Joke Generator</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .joke-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #jokeSetup, #jokePunchline {
+      font-size: 1.2em;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      transition: opacity 0.3s ease;
+    }
+
+    #jokePunchline {
+      font-style: italic;
+      color: #777;
+    }
+
+    button {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.2s ease;
+      margin: 5px;
+    }
+
+    button:hover {
+      background-color: #e55a5a;
+    }
+
+    .fade {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="joke-container">
+    <h1>😆 Random Joke Generator</h1>
+    <p id="jokeSetup">Click the button to get a joke!</p>
+    <p id="jokePunchline"></p>
+    <button id="newJoke">Get New Joke</button>
+    <button id="copyJoke">Copy Joke</button>
+    <button id="tweetJoke">Tweet Joke</button>
+  </div>
+
+  <script>
+    const jokeSetup = document.getElementById("jokeSetup");
+    const jokePunchline = document.getElementById("jokePunchline");
+    const newJokeBtn = document.getElementById("newJoke");
+    const copyBtn = document.getElementById("copyJoke");
+    const tweetBtn = document.getElementById("tweetJoke");
+
+    async function getJoke() {
+      jokeSetup.textContent = "Fetching joke...";
+      jokePunchline.textContent = "";
+
+      try {
+        const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+        const data = await response.json();
+
+        // Fade effect
+        jokeSetup.classList.add("fade");
+        jokePunchline.classList.add("fade");
+
+        setTimeout(() => {
+          jokeSetup.textContent = data.setup;
+          jokePunchline.textContent = data.punchline;
+          jokeSetup.classList.remove("fade");
+          jokePunchline.classList.remove("fade");
+        }, 300);
+
+      } catch (error) {
+        console.error("Error fetching joke:", error);
+        jokeSetup.textContent = "Failed to load joke 😢";
+        jokePunchline.textContent = "";
+      }
+    }
+
+    newJokeBtn.addEventListener("click", getJoke);
+
+    copyBtn.addEventListener("click", () => {
+      const fullJoke = `${jokeSetup.textContent} ${jokePunchline.textContent}`;
+      navigator.clipboard.writeText(fullJoke);
+      alert("Joke copied to clipboard! 📋");
+    });
+
+    tweetBtn.addEventListener("click", () => {
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        jokeSetup.textContent + " " + jokePunchline.textContent
+      )}`;
+      window.open(tweetUrl, "_blank");
+    });
+
+    // Load one joke on start
+    getJoke();
+  </script>
+</body>
+</html>
+
+

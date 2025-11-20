@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 17 – JS Calculator & Color Changer</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+  <h1>🧮 JavaScript Calculator</h1>
+
+  <input type="number" id="num1" placeholder="Enter first number">
+  <input type="number" id="num2" placeholder="Enter second number">
+
+  <select id="operation">
+    <option value="+">+</option>
+    <option value="-">−</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+
+  <button onclick="performCalculation()">Calculate</button>
+
+  <div id="result"></div>
+
+  <div class="color-buttons">
+    <h2>🎨 Color Controls</h2>
+    <button onclick="changeBackground()">Change Background</button>
+    <button onclick="changeTextColor()">Change Text Color</button>
+    <button onclick="changeFontSize()">Change Font Size</button>
+    <button onclick="resetPage()">Reset Page</button>
+  </div>
+</body>
+</html>

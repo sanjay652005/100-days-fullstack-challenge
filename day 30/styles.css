@@ -1,0 +1,78 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #574bff;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transform: rotateY(0);
+  transition: transform 0.5s;
+}
+
+.card.flipped {
+  background-color: #fff5c3;
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  background-color: #b6ffb6;
+  cursor: default;
+}
+
+.win-message {
+  display: none;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #4caf50;
+  padding: 10px 20px;
+  border-radius: 10px;
+}

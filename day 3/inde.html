@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day 3</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+       
+        .report-card {
+            width: 80%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        
+        .report-card th, .report-card td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        
+        .report-card thead th {
+            background-color: #0b0338;
+            color: white;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+       
+        .report-card tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+       
+        .report-card tbody tr:hover {
+            background-color: #ddd;
+            cursor: default;
+            transform: scale(1.01);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        
+        .report-card tfoot td {
+            font-weight: bold;
+            background-color: #f1efef;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="report-card">
+        <thead>
+           
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mathematics</td>
+                <td>85</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>Science</td>
+                <td>92</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>History</td>
+                <td>78</td>
+                <td>B+</td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td>88</td>
+                <td>A</td>
+            </tr>
+           >
+        </tbody>
+        <tfoot>
+         
+            <tr>
+                <td>Total Marks </td>
+                <td colspan="2">520 / 600</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

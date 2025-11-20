@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 12 – Arrays & Objects</title>
+</head>
+
+<body>
+  <h2>🎬 My Favorite Movies</h2>
+  <div id="movies"></div>
+
+  <h2>👨‍🎓 Student Information</h2>
+  <div id="student"></div>
+
+  <script>
+
+    let movies = ["mersal", "kathi", "thupakki", "naan e", "96"];
+
+    document.write("<h3>Original Movie List:</h3>");
+    for(let i = 0; i < movies.length; i++) {
+      document.write(movies[i] + "<br>");
+    }
+
+   
+    movies.push("meiyazhagan");
+
+    document.write("<h3>Updated Movie List:</h3>");
+    for(let i = 0; i < movies.length; i++) {
+      document.write(movies[i] + "<br>");
+    }
+
+   
+    let student = {
+      name: "Sanjay",
+      age: 20,
+      course: "Full Stack Development",
+      city: "kancheepuram"
+    };
+
+    document.write("<h3>Original Student Info:</h3>");
+    document.write("Name: " + student.name + "<br>");
+    document.write("Age: " + student.age + "<br>");
+    document.write("Course: " + student.course + "<br>");
+    document.write("City: " + student.city + "<br>");
+
+    student.city = "Bangalore";
+
+    document.write("<h3>Updated Student Info:</h3>");
+    document.write("Name: " + student.name + "<br>");
+    document.write("Age: " + student.age + "<br>");
+    document.write("Course: " + student.course + "<br>");
+    document.write("City: " + student.city + "<br>");
+  </script>
+</body>
+</html>

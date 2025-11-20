@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⏳ Countdown Timer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      margin: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .finished {
+      font-size: 1.3rem;
+      color: #dc3545;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>⏳ Countdown Timer</h1>
+  <div class="container">
+    <input type="datetime-local" id="target-date" />
+    <button id="start">Start</button>
+    <button id="reset">Reset</button>
+
+    <div class="timer">
+      <div>
+        <div id="days">00</div>
+        <div class="label">Days</div>
+      </div>
+      <div>
+        <div id="hours">00</div>
+        <div class="label">Hours</div>
+      </div>
+      <div>
+        <div id="minutes">00</div>
+        <div class="label">Minutes</div>
+      </div>
+      <div>
+        <div id="seconds">00</div>
+        <div class="label">Seconds</div>
+      </div>
+    </div>
+    <div id="message" class="finished"></div>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById("start");
+    const resetBtn = document.getElementById("reset");
+    const targetInput = document.getElementById("target-date");
+    const message = document.getElementById("message");
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    let countdown; // store interval ID
+
+    startBtn.addEventListener("click", () => {
+      // Clear any existing interval before starting new
+      clearInterval(countdown);
+
+      const targetTime = new Date(targetInput.value).getTime();
+      if (!targetInput.value) {
+        alert("Please select a date and time!");
+        return;
+      }
+
+      countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetTime - now;
+
+        if (distance <= 0) {
+          clearInterval(countdown);
+          message.textContent = "🎉 Time's Up!";
+          updateDisplay(0, 0, 0, 0);
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        updateDisplay(days, hours, minutes, seconds);
+        message.textContent = "";
+      }, 1000);
+    });
+
+    resetBtn.addEventListener("click", () => {
+      clearInterval(countdown); // stop the timer
+      targetInput.value = "";
+      updateDisplay(0, 0, 0, 0);
+      message.textContent = "";
+    });
+
+    function updateDisplay(d, h, m, s) {
+      daysEl.textContent = d.toString().padStart(2, "0");
+      hoursEl.textContent = h.toString().padStart(2, "0");
+      minutesEl.textContent = m.toString().padStart(2, "0");
+      secondsEl.textContent = s.toString().padStart(2, "0");
+    }
+  </script>
+</body>
+</html>

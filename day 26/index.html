@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⏰ Digital Clock</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #89f7fe, #66a6ff);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .clock-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    #time {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    #date {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .dark-mode {
+      background: linear-gradient(to right, #232526, #414345);
+      color: #fff;
+    }
+
+    .dark-mode .clock-box {
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+
+    .fade {
+      animation: fade 1s ease-in-out;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0.3; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>⏰ Digital Clock</h1>
+  <div class="clock-box">
+    <div id="time" class="fade">--:--:--</div>
+    <div id="date">Loading...</div>
+  </div>
+
+  <div class="controls">
+    <button id="toggleFormat">Switch to 12-Hour</button>
+    <button id="toggleMode">🌙 Dark Mode</button>
+  </div>
+
+  <script>
+    const timeEl = document.getElementById("time");
+    const dateEl = document.getElementById("date");
+    const toggleFormatBtn = document.getElementById("toggleFormat");
+    const toggleModeBtn = document.getElementById("toggleMode");
+    let is24Hour = true;
+
+    function updateClock() {
+      const now = new Date();
+
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      let ampm = "";
+      if (!is24Hour) {
+        ampm = hours >= 12 ? " PM" : " AM";
+        hours = hours % 12 || 12;
+      }
+
+      const formattedTime = 
+        `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}${ampm}`;
+      
+      const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      
+      const formattedDate = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+
+      timeEl.textContent = formattedTime;
+      dateEl.textContent = formattedDate;
+
+      timeEl.classList.remove("fade");
+      void timeEl.offsetWidth; // restart animation
+      timeEl.classList.add("fade");
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    toggleFormatBtn.addEventListener("click", () => {
+      is24Hour = !is24Hour;
+      toggleFormatBtn.textContent = is24Hour ? "Switch to 12-Hour" : "Switch to 24-Hour";
+      updateClock();
+    });
+
+    toggleModeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleModeBtn.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>
