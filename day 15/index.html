@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 16 – Loops & Strings Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9fafb;
+      
+    
+    }
+    h2 {
+      color: #333;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+    input {
+      padding: 8px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 10px;
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1> Loops & Strings </h1>
+
+  <div class="card">
+    <h2> Multiplication Table Generator</h2>
+    <input type="number" id="tableNumber" placeholder="Enter a number">
+    <button onclick="generateTable()">Generate</button>
+    <div id="tableOutput" class="output"></div>
+  </div>
+
+  
+  <div class="card">
+    <h2> Reverse a String</h2>
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button onclick="reverseText()">Reverse</button>
+    <div id="reverseOutput" class="output"></div>
+  </div>
+
+  <script>
+    
+    function generateTable() {
+      const num = document.getElementById("tableNumber").value;
+      const output = document.getElementById("tableOutput");
+
+      if (num === "") {
+        output.innerHTML = "⚠️ Please enter a number!";
+        return;
+      }
+
+      let result = "";
+      for (let i = 1; i <= 10; i++) {
+        result += `${num} x ${i} = ${num * i}<br>`;
+      }
+      output.innerHTML = result;
+    }
+
+    function reverseText() {
+      const text = document.getElementById("textInput").value;
+      const output = document.getElementById("reverseOutput");
+
+      if (text.trim() === "") {
+        output.innerHTML = "⚠️ Please enter some text!";
+        return;
+      }
+
+      const reversed = text.split("").reverse().join("");
+      output.innerHTML = `<b>Original:</b> ${text}<br><b>Reversed:</b> ${reversed}`;
+    }
+  </script>
+</body>
+</html>
+
+
+

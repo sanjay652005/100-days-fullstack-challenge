@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Lists & CSS Styling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    /* Styling for lists */
+    ul {
+      list-style-type: square;
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+
+    ol {
+      list-style-type: upper-roman;
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+
+    li {
+      padding: 5px;
+      transition: 0.3s;
+    }
+
+    li:hover {
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    /* Navigation menu */
+    .nav {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      background: #333;
+    }
+
+    .nav li {
+      padding: 15px 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h2>Unordered List</h2>
+  <ul>
+    <li>Frontend
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+    </li>
+    <li>Backend</li>
+    <li>Database</li>
+  </ul>
+
+  <h2>Ordered List</h2>
+  <ol>
+    <li>Plan the project</li>
+    <li>Design the layout</li>
+    <li>Write the code</li>
+    <li>Test & Deploy</li>
+  </ol>
+
+  <h2>Navigation Menu </h2>
+  <ul class="nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</body>
+</html>

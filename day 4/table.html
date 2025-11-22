@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Timetable</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #d1e7dd;
+      cursor: pointer;
+    }
+    caption {
+      font-size: 1.5em;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Weekly Study Timetable</caption>
+    <tr>
+      <th>Day</th>
+      <th>9 - 10 AM</th>
+      <th>10 - 11 AM</th>
+      <th>11 - 12 PM</th>
+      <th>12 - 1 PM</th>
+      <th>1 - 2 PM</th>
+      <th>2 - 3 PM</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td rowspan="2">Math</td>

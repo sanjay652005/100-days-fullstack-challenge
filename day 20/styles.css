@@ -1,0 +1,89 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  padding-top: 40px;
+}
+
+.container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.input-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+#expenseList {
+  list-style: none;
+  padding: 0;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef2f6;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #d93030;
+}
+
+.clear-btn {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #555;
+}
+
+.clear-btn:hover {
+  background-color: #333;
+}

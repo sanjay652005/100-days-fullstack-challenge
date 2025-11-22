@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 9 - CSS Box Model & Positioning</title>
+  <style>
+    body {
+        background-color: #bfbace;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .box {
+      width: 200px;
+      margin: 20px;
+      padding: 15px;
+      background-color: #f2f2f2;
+    }
+
+    .solid { border: 3px solid #333; }
+    .dashed { border: 3px dashed #007BFF; }
+    .dotted { border: 3px dotted #28a745; }
+    .double { border: 5px double #ff5733; }
+
+   
+    .relative {
+      position: relative;
+      left: 30px;
+      top: 10px;
+      background: #ffeaa7;
+    }
+
+    .absolute-container {
+      position: relative;
+      height: 200px;
+      background: #dfe6e9;
+      margin: 20px;
+    }
+
+    .absolute {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: #fab1a0;
+      padding: 10px;
+    }
+
+    
+    .card {
+      width: 250px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      border-radius: 60%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    Fixed Navigation Bar
+  </nav>
+
+  <h2 style="margin-top:70px;">Box Model Examples</h2>
+  <div class="box solid">Solid Border</div>
+  <div class="box dashed">Dashed Border</div>
+  <div class="box dotted">Dotted Border</div>
+  <div class="box double">Double Border</div>
+
+  <h2>Positioning Examples</h2>
+  <div class="box relative">Relative Positioned Box</div>
+
+  <div class="absolute-container">
+    Container (relative)
+    <div class="absolute">Absolute Positioned</div>
+  </div>
+
+  <h2>Extra Challenge: Card Design</h2>
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdeFFObfW_El_lXIeMsYs7YHMVDA4q1rU6uQ&s" alt="Profile">
+    <h3>sanjay</h3>
+    <p>Frontend Developer </p>
+  </div>
+
+</body>
+</html>

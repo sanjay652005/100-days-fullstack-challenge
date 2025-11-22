@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 21 - Error Handling Demo</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* full viewport height */
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #output {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Error Handling Demo</h1>
+  <input id="numInput" placeholder="Enter a number">
+  <button onclick="checkNumber()">Check</button>
+  <p id="output"></p>
+
+  <script>
+    function checkNumber() {
+      const output = document.getElementById("output");
+      try {
+        let num = document.getElementById("numInput").value;
+        if (isNaN(num) || num === "") {
+          throw new Error("❌ Please enter a valid number!");
+        }
+        output.textContent = `✅ You entered: ${num}`;
+      } catch (error) {
+        output.textContent = error.message;
+      } finally {
+        console.log("✅ Program ended (finally block executed)");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f6f9;
+    }
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .clear {
+      background: #dc3545;
+    }
+    .clear:hover {
+      background: #a71d2a;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2> Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <div>
+      <button onclick="calculate('+')">+</button>
+      <button onclick="calculate('-')">-</button>
+      <button onclick="calculate('*')">*</button>
+      <button onclick="calculate('/')">/</button>
+      <button class="clear" onclick="clearFields()">Clear</button>
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculate(operator) {
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+      let result;
+
+      if (isNaN(n1) || isNaN(n2)) {
+        result = "⚠️ Please enter both numbers!";
+      } else {
+        switch (operator) {
+          case '+':
+            result = n1 + n2;
+            break;
+          case '-':
+            result = n1 - n2;
+            break;
+          case '*':
+            result = n1 * n2;
+            break;
+          case '/':
+            result = n2 === 0 ? "❌ Cannot divide by 0" : (n1 / n2);
+            break;
+        }
+      }
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+
+    function clearFields() {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("result").innerText = "";
+    }
+  </script>
+</body>
+</html>

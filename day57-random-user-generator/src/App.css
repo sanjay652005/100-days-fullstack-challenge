@@ -1,0 +1,97 @@
+/* App.css */
+.app {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.topbar h1 {
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.4px;
+}
+
+.controls {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.controls input[type="number"] {
+  width:64px;
+  padding:6px 8px;
+  border-radius:6px;
+  border:1px solid #ddd;
+}
+
+.controls button {
+  padding:8px 12px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  background: #0b63ff;
+  color: white;
+  font-weight:600;
+}
+
+.status {
+  text-align:center;
+  margin:24px 0;
+  color:#333;
+}
+
+.status.error { color: #b00020; }
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:16px;
+}
+
+.card {
+  background: white;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(14, 30, 37, 0.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:12px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(14, 30, 37, 0.12);
+}
+
+.avatar {
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border: 3px solid #fff;
+  margin-top:6px;
+  box-shadow: 0 4px 12px rgba(14,30,37,0.06);
+}
+
+.card-body {
+  text-align:center;
+  padding:12px 8px 16px;
+  width:100%;
+}
+
+.name { margin:6px 0 2px; font-size:16px; }
+.email { margin:0; font-size:13px; color:#2f2f2f; opacity:0.8; word-break:break-word; }
+.location { font-size:12px; color:#666; margin-top:6px; }
+.meta { display:flex; justify-content:space-around; margin-top:10px; font-size:12px; color:#444; }
+.footer { text-align:center; margin-top:20px; color:#666; }
+

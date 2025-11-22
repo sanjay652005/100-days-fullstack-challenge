@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 10 - Functions & Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background: #4caf50;
+      color: white;
+    }
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="heading">Welcome to Day 10 🚀</h1>
+  <p id="paragraph">Hover over me to change my color!</p>
+
+  <button onclick="changeBackground()">Change Background</button>
+  <button onclick="changeHeading()">Change Heading Text</button>
+
+  <script>
+    function addNumbers(a, b) {
+      return a + b;
+    }
+    console.log("Addition of 5 + 10 =", addNumbers(5, 10));
+    function greet() {
+      return "Hello, Sanjay!";
+    }
+    console.log(greet());
+    function greetUser(name) {
+      return "Hello, " + name + "!";
+    }
+    console.log(greetUser("Sparky"));
+    function changeBackground() {
+      document.body.style.backgroundColor = 
+        "#" + Math.floor(Math.random()*16777215).toString(16); // random color
+    }
+    let para = document.getElementById("paragraph");
+    para.onmouseover = function() {
+      para.style.color = "red";
+    };
+    para.onmouseout = function() {
+      para.style.color = "black";
+    };
+    let count = 0;
+    function changeHeading() {
+      let heading = document.getElementById("heading");
+      count++;
+      heading.innerText = "Heading changed " + count + " time(s)!";
+    }
+  </script>
+</body>
+</html>

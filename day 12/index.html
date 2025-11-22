@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Loops Practice</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #eeddd7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+    h1 {
+      color: #222;
+      text-shadow: 1px 1px 3px #fff;
+    }
+    .container {
+      background: #fff;
+      padding: 25px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+    }
+    button {
+      background: #f76b1c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff8c42;
+    }
+    #output {
+      text-align: left;
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: 2px solid #837269;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 JavaScript Loops </h1>
+
+  <div class="container">
+    <button onclick="printNumbers()">For Loop (1–10)</button>
+    <button onclick="printEvens()">While Loop (Even 1–20)</button>
+    <button onclick="askPositive()">Do...While Loop</button>
+    
+    <br><br>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="showTable()">Multiplication Table</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function printNumbers() {
+      let output = "<strong>For Loop (1–10):</strong><br>";
+      for (let i = 1; i <= 10; i++) {
+        output += i + " ";
+      }
+      document.getElementById("output").innerHTML = output;
+    }
+
+    function printEvens() {
+      let output = "<strong>While Loop (Even 1–20):</strong><br>";
+      let i = 2;
+      while (i <= 20) {
+        output += i + " ";
+        i += 2;
+      }
+      document.getElementById("output").innerHTML = output;
+    }
+
+    function askPositive() {
+      let num;
+      do {
+        num = prompt("Enter a positive number:");
+      } while (num <= 0);
+      document.getElementById("output").innerHTML = 
+        "<strong>Do...While Result:</strong><br>You entered: " + num;
+    }
+
+    function showTable() {
+      let n = document.getElementById("num").value;
+      let output = "";
+
+      if (n === "" || isNaN(n)) {
+        output = "⚠️ Please enter a valid number.";
+      } else {
+        output = `<strong>Multiplication Table of ${n}:</strong><br>`;
+        for (let i = 1; i <= 10; i++) {
+          output += `${n} × ${i} = ${n * i}<br>`;
+        }
+      }
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

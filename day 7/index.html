@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 7 - Media Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #c4bfbf;
+      padding: 20px;
+      
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .media-container {
+      margin: 20px auto;
+      padding: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      background: #fff;
+      max-width: 600px;
+    }
+
+    img, video, iframe {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML Media Elements</h1>
+
+  <!-- Image -->
+  <div class="media-container">
+    <h2>Image Example</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVUuh00PI6VxxO6HEkeRjTT3ZC-8bsHFr83A&s" alt="sample Image">
+  </div>
+
+  <!-- Audio -->
+  <div class="media-container">
+    <h2>Audio Example</h2>
+    <audio controls>
+      <source src="dragonball_z_theme.mp3" type="audio/mp3">
+      
+    </audio>
+  </div>
+
+  <!-- Video -->
+  <div class="media-container">
+    <h2>Video Example</h2>
+    <video controls autoplay muted loop>
+      <source src="Goku Are You Finished  Goku ultra instinct theme🎵  [4k_edit] #ultrainstinct#uigoku - deluxe_edits (1080p, h264).mp4" type="video/mp4">
+     
+    </video>
+  </div>
+
+  <!-- Extra Challenge: YouTube Embed -->
+  <div class="media-container">
+    <h2>YouTube Video</h2>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/GQVd32XNGSc?si=yMSRITqYAUY0BE6P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</body>
+</html>
