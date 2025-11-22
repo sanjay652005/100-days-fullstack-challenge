@@ -1,0 +1,33 @@
+/* Minimal shooting stars only */
+.shooting-star {
+  position: fixed;
+  top: -20px;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: shoot 3s linear infinite;
+  z-index: -1;
+}
+
+/* animation */
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(45deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-600px) translateY(600px) rotate(45deg);
+  }
+}
+
+/* random timings */
+.shooting-star:nth-child(1) { left: 20%; animation-delay: 1s; }
+.shooting-star:nth-child(2) { left: 65%; animation-delay: 4s; }
+.shooting-star:nth-child(3) { left: 40%; animation-delay: 7s; }
